@@ -28,8 +28,11 @@ direnv allow .
 # Install dependencies
 poetry install --no-root --with dev
 
-# Activate the virtual environment
-poetry shell
+# Activate the virtual environment (Poetry 2.0+)
+poetry env activate
+
+# To leave the virtual environment when done
+deactivate
 
 # Install pre-commit hooks
 pre-commit install
@@ -143,14 +146,6 @@ The pipeline runs automatically on:
 - All pull requests
 - Manual trigger via GitHub Actions interface
 
-## 🤝 Contributing
-
-Contributions are welcome! Please check out our [Contributing Guide](CONTRIBUTING.md) for details on how to get started.
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-**Note**: To use the Codecov and GitHub Action badges, make sure to replace "username" in the badge URLs with your actual GitHub username.
