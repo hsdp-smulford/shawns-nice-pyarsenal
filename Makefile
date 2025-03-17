@@ -49,7 +49,7 @@ clean:
 lint:
 	$(POETRY) run flake8 .
 	$(POETRY) run mypy .
-	$(POETRY) run bandit -r . -x ./tests
+	$(POETRY) run bandit -r . -x ./tests,.venv
 
 # Format code
 format:

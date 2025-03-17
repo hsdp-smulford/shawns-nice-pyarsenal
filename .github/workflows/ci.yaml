@@ -57,7 +57,7 @@ jobs:
 
       - name: Run Security checks with Bandit
         run: |
-          poetry run bandit -r . -x ./tests
+          poetry run bandit -r . -x ./tests,.venv
 
       - name: Run complexity checks with Radon
         run: |
