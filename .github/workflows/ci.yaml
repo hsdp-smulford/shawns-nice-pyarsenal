@@ -101,9 +101,8 @@ jobs:
         run: |
           poetry install --no-root --with dev
 
-      - name: Run tests with pytest and generate coverage report
-        run: |
-          poetry run pytest --cov=. --cov-report=xml
+      - name: Run tests
+        run: poetry run pytest --cov=. --cov-report=json --cov-report=xml
 
       - name: Upload coverage report to Codecov
         uses: codecov/codecov-action@v3

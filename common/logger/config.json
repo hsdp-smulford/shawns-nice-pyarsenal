@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "simple": {
+      "format": "%(asctime)s; %(name)s; %(levelname)s; %(message)s"
+    },
+    "detailed": {
+      "format": "%(asctime)s; %(name)s; %(levelname)s; %(pathname)s:%(lineno)d; %(message)s",
+      "datefmt": "%Y-%m-%d %H:%M:%S"
+    },
+    "json": {
+      "format": "%(asctime)s %(name)s %(levelname)s %(pathname)s %(lineno)d %(message)s %(process)d %(thread)d",
+      "datefmt": "%Y-%m-%d %H:%M:%S",
+      "class": "common.logger.logger.JsonFormatter"
+    }
+  },
+  "handlers": {
+    "console": {
+      "class": "logging.StreamHandler",
+      "level": "INFO",
+      "formatter": "simple",
+      "stream": "ext://sys.stdout"
+    },
+    "file": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "DEBUG",
+      "formatter": "detailed",
+      "filename": "/var/log/pyarsenal/app.log",
+      "maxBytes": 10485760,
+      "backupCount": 5,
+      "encoding": "utf8"
+    },
+    "error_file": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "ERROR",
+      "formatter": "detailed",
+      "filename": "/var/log/pyarsenal/error.log",
+      "maxBytes": 10485760,
+      "backupCount": 5,
+      "encoding": "utf8"
+    },
+    "json_file": {
+      "class": "logging.handlers.TimedRotatingFileHandler",
+      "level": "INFO",
+      "formatter": "json",
+      "filename": "/var/log/pyarsenal/app.log",
+      "when": "midnight",
+      "interval": 1,
+      "backupCount": 7,
+      "encoding": "utf8"
+    }
+  },
+  "root": {
+    "level": "INFO",
+    "handlers": ["console", "file"],
+    "propagate": true
+  },
+  "loggers": {
+    "app": {
+      "level": "DEBUG",
+      "handlers": ["console", "file", "error_file"],
+      "propagate": false
+    },
+    "github": {
+      "level": "INFO",
+      "handlers": ["console", "file", "json_file"],
+      "propagate": false
+    }
+  }
+}

@@ -22,6 +22,7 @@ pytest-cov = "^4.1.0"
 pre-commit = "^3.5.0"
 bandit = "^1.7.5"
 radon = "^6.0.1"
+flake8-pyproject = "^1.2.3"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
@@ -56,3 +57,13 @@ skips = ["B101"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = "test_*.py"
+
+[tool.flake8]
+max-line-length = 120
+extend-ignore = ["E203", "E501"]
+exclude = [".git", "__pycache__", "build", "dist", ".venv", "venv", ".env", "env"]
+per-file-ignores = """
+    __init__.py:F401,F403
+    examples/*.py:E402
+"""
+max-complexity = 10

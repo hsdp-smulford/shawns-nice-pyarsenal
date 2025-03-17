@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """Dummy test module to ensure CI pipeline passes."""
 
 

@@ -62,7 +62,7 @@ test:
 
 # Run tests with coverage
 coverage:
-	$(POETRY) run pytest --cov=. --cov-report=html
+	$(POETRY) run pytest --cov=. --cov-report=json
 
 # Uninstall
 uninstall:
