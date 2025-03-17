@@ -49,7 +49,7 @@ clean:
 lint:
 	$(POETRY) run flake8 .
 	$(POETRY) run mypy .
-	$(POETRY) run bandit -r . -x ./tests,.venv
+	$(POETRY) run bandit -r . --configfile pyproject.toml
 
 # Format code
 format:

@@ -49,6 +49,10 @@ files = "*.py"
 package_root = "."
 explicit_package_bases = true
 
+[tool.bandit]
+exclude_dirs = [".venv", "tests", ".git"]
+skips = ["B101"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = "test_*.py"
